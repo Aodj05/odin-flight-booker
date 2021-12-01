@@ -1,0 +1,14 @@
+<div class = "results-summary">
+  <p>
+    <strong>Departure:</strong>
+    <%= flight.pass_departure %>
+    on <%= flight.pass_date %>
+    from <%= flight.origin_airport.code %> (<%= flight.origin_airport.location %>)
+  </p>
+
+  <p>
+    <strong>Arrivals:</strong>
+    <%= flight.pass_arrival %>
+    to <%= flight.destination_airport.code %> (<%= flight.destination_airport.location%>)
+  </p>
+</div>

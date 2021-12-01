@@ -1,3 +1,11 @@
 <div class = "flights-container">
   <%= render partial: 'search_form' %>
+  <div class = "flight-results">
+  <% if @booking_options %>
+    <p class="sub-title">Available Flights:</p>
+    <%= render partial: 'results_selection_form' %>
+    <% else %>
+      <p class="results-placeholder">Choose flight options to see the available flights.</p>
+    <% end %>
+  </div>
 </div>

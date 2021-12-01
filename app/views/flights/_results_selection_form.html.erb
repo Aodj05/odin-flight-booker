@@ -1,0 +1,30 @@
+<%= form_with url: "/bookings/new/", method: "get", local: true do |f|%>
+
+  <%= f.hidden_field :passenger_count, :value => params[:passenger_count]%>
+
+  <div class = "radio-button-contianer">
+    <%= @booking_options.each do |booking| %>
+      <div class = "radio-button">
+        <%= f.radio_button :booking_option, booking.map(&:id), { required: true } %>
+      </div>
+      <div class = "button-label">
+        <%= f.label(:booking_option, {for: "booking_option_#{booking.map(&:id).join("_")}"}) do %>
+          <% booking.each_with_index do |flight, index| %>
+            <% if index.positive? %>
+             <strong>layover</strong> with
+            <% end %>
+            <%= flight.details %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if @booking_options.empty? %>
+    <p>No flight available that match search terms</p>
+  <% else %>
+    <div class = "form-button">
+      <%= f.submit "Book Now!" %>
+    </div>
+  <% end %>
+<% end %>

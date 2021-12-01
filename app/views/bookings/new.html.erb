@@ -1,0 +1,11 @@
+<div class = "new-booking-container">
+  <p class = "sub-title">
+    <%= pluralize(@flights.count, "Flight") %>:
+  </p>
+  <% @flights.each do |flight| %>
+    <%= render partial: 'summary', locals: { flight: flight } %>
+  <% end %>
+  <br/>
+  <p class = "sub-title">Add passenger criteria:</p>
+  <%= render partial: 'form' %>
+</div>
