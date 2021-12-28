@@ -1,0 +1,11 @@
+Odin Flight Booker
+==================
+
+Thank for booking a flight with Odin Flight Booker. Booking #<%= @booking.id %> was succesfully booked!
+  summary:
+
+<%= @booking.flights.distinct.each do |flight|%>
+  <%= flight.details %> on <%= flight.humanize_date %>
+<% end %>
+
+For additional details click: https://OdinFlightBooker.com<%= @booking.id %>

@@ -1,0 +1,13 @@
+<h1>Odin Flight Booker</h1>
+<p>
+  Thank for booking a flight with Odin Flight Booker. Booking #<%= @booking.id %> was succesfully booked!
+  summary:
+</p>
+<%= @booking.flights.distinct.each do |flight|%>
+  <p class="flight-summary">
+  <%= flight.details %> on <%= flight.humanize_date %>
+  </p>
+<% end %>
+<p>
+  For additional details click: <%= link_to 'your booking', booking_url(@booking) %>
+</p>

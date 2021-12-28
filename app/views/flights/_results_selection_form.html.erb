@@ -1,6 +1,6 @@
-<%= form_with url: "/bookings/new/", method: "get", local: true do |f|%>
+<%= form_with url: "bookings/new/", method: "get", local: true do |f| %>
 
-  <%= f.hidden_field :passenger_count, :value => params[:passenger_count]%>
+  <%= f.hidden_field :passenger_count, :value => params[:passenger_count] %>
 
   <div class = "radio-button-contianer">
     <%= @booking_options.each do |booking| %>

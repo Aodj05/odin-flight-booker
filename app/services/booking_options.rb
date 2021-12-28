@@ -1,5 +1,5 @@
 class BookingOptions
-    def initialize(params)
+      def initialize(params)
         @origin = Airport.find_by(id: params[:origin_id])
         @destination = Airport.find_by(id: params[:destination_id])
         @date = params["departure_date"]
@@ -42,9 +42,7 @@ class BookingOptions
         end
     
         def find_flight_options(origin, destination, date)
-          Flight.where({ "origin_id" => origin,
-                         "destination_id" => destination,
-                         "departure_date" => date })
+          Flight.where({ "origin_id" => origin, "destination_id" => destination, "departure_date" => date })
         end
     
         def under_four_hours?(direct_flights)

@@ -1,4 +1,4 @@
-<% form_with model: @booking, local: true do |f| %>
+<%= form_with model: @booking, local: true do |f| %>
   <% if @booking.errors.any? %>
     <div>
       <p class = "sub-title">
@@ -16,19 +16,19 @@
 <%= f.hidden_field :passenger_count, :value => params[:passenger_count] %>
 
 <%= f.fields_for :passengers do |passenger_form| %>
-  <div class = "new-passenger-count">
+  <div class = "new-passenger-container">
     <div class = "form-field">
       <%= passenger_form.label :name %>
       <%= passenger_form.text_field :name, required: true, placeholder: "John Smith" %>
     </div>
-     <div class = "form-field">
-       <%= passenger_form.label :email %>
-       <%= passenger_form.email_field :email, required: true, placeholder: "JSmith@email.com%" %>
-     </div>
+    <div class = "form-field">
+      <%= passenger_form.label :email %>
+      <%= passenger_form.email_field :email, required: true, placeholder: "JSmith@email.com" %>
+    </div>
   </div>
 <% end %>
 
 <div class = "form-button">
-  <% f.subit "Book flight" %>
+  <%= f.submit "Book flight" %>
 </div>
 <% end %>
